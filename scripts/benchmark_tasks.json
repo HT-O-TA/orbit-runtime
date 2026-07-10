@@ -1,0 +1,222 @@
+[
+    {
+        "task_id": "bench-001",
+        "user_query": "分析 Python 异步编程的最佳实践",
+        "sub_tasks": [
+            {"id": "p1", "name": "任务分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "分析 Python 异步编程的最佳实践"}},
+            {"id": "r1", "name": "调研资料", "agent_type": "researcher", "dependencies": ["p1"], "input_context": {"query": "Python asyncio 最佳实践"}},
+            {"id": "c1", "name": "编写代码示例", "agent_type": "coder", "dependencies": ["r1"], "input_context": {"query": "编写 asyncio 示例代码"}},
+            {"id": "v1", "name": "代码审核", "agent_type": "reviewer", "dependencies": ["c1"], "input_context": {"query": "审核代码质量"}}
+        ],
+        "dag_adjacency": {"p1": ["r1"], "r1": ["c1"], "c1": ["v1"], "v1": []}
+    },
+    {
+        "task_id": "bench-002",
+        "user_query": "设计一个 RESTful API 服务",
+        "sub_tasks": [
+            {"id": "p2", "name": "需求分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "设计 RESTful API"}},
+            {"id": "r2", "name": "技术选型", "agent_type": "researcher", "dependencies": ["p2"], "input_context": {"query": "FastAPI vs Flask"}},
+            {"id": "c2", "name": "实现 API", "agent_type": "coder", "dependencies": ["r2"], "input_context": {"query": "实现 CRUD API"}},
+            {"id": "v2", "name": "测试验证", "agent_type": "reviewer", "dependencies": ["c2"], "input_context": {"query": "测试 API 接口"}}
+        ],
+        "dag_adjacency": {"p2": ["r2"], "r2": ["c2"], "c2": ["v2"], "v2": []}
+    },
+    {
+        "task_id": "bench-003",
+        "user_query": "解释机器学习中的梯度下降算法",
+        "sub_tasks": [
+            {"id": "p3", "name": "概念讲解", "agent_type": "planner", "dependencies": [], "input_context": {"query": "解释梯度下降"}},
+            {"id": "r3", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p3"], "input_context": {"query": "梯度下降原理"}},
+            {"id": "c3", "name": "数学推导", "agent_type": "coder", "dependencies": ["r3"], "input_context": {"query": "梯度下降公式推导"}},
+            {"id": "v3", "name": "内容审核", "agent_type": "reviewer", "dependencies": ["c3"], "input_context": {"query": "审核数学推导"}}
+        ],
+        "dag_adjacency": {"p3": ["r3"], "r3": ["c3"], "c3": ["v3"], "v3": []}
+    },
+    {
+        "task_id": "bench-004",
+        "user_query": "优化 SQL 查询性能",
+        "sub_tasks": [
+            {"id": "p4", "name": "问题分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "SQL 查询优化"}},
+            {"id": "r4", "name": "调研方案", "agent_type": "researcher", "dependencies": ["p4"], "input_context": {"query": "SQL 索引优化"}},
+            {"id": "c4", "name": "编写优化方案", "agent_type": "coder", "dependencies": ["r4"], "input_context": {"query": "优化 SQL 查询"}},
+            {"id": "v4", "name": "方案审核", "agent_type": "reviewer", "dependencies": ["c4"], "input_context": {"query": "审核优化方案"}}
+        ],
+        "dag_adjacency": {"p4": ["r4"], "r4": ["c4"], "c4": ["v4"], "v4": []}
+    },
+    {
+        "task_id": "bench-005",
+        "user_query": "设计微服务架构",
+        "sub_tasks": [
+            {"id": "p5", "name": "架构设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "微服务架构设计"}},
+            {"id": "r5", "name": "技术调研", "agent_type": "researcher", "dependencies": ["p5"], "input_context": {"query": "微服务最佳实践"}},
+            {"id": "c5", "name": "绘制架构图", "agent_type": "coder", "dependencies": ["r5"], "input_context": {"query": "绘制架构图"}},
+            {"id": "v5", "name": "审核架构", "agent_type": "reviewer", "dependencies": ["c5"], "input_context": {"query": "审核架构设计"}}
+        ],
+        "dag_adjacency": {"p5": ["r5"], "r5": ["c5"], "c5": ["v5"], "v5": []}
+    },
+    {
+        "task_id": "bench-006",
+        "user_query": "实现用户认证系统",
+        "sub_tasks": [
+            {"id": "p6", "name": "需求分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "用户认证系统"}},
+            {"id": "r6", "name": "方案调研", "agent_type": "researcher", "dependencies": ["p6"], "input_context": {"query": "JWT OAuth2 对比"}},
+            {"id": "c6", "name": "实现认证", "agent_type": "coder", "dependencies": ["r6"], "input_context": {"query": "实现 JWT 认证"}},
+            {"id": "v6", "name": "安全审核", "agent_type": "reviewer", "dependencies": ["c6"], "input_context": {"query": "安全审核"}}
+        ],
+        "dag_adjacency": {"p6": ["r6"], "r6": ["c6"], "c6": ["v6"], "v6": []}
+    },
+    {
+        "task_id": "bench-007",
+        "user_query": "分析数据结构复杂度",
+        "sub_tasks": [
+            {"id": "p7", "name": "复杂度分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "数据结构复杂度"}},
+            {"id": "r7", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p7"], "input_context": {"query": "时间空间复杂度"}},
+            {"id": "c7", "name": "编写分析", "agent_type": "coder", "dependencies": ["r7"], "input_context": {"query": "复杂度对比表"}},
+            {"id": "v7", "name": "审核分析", "agent_type": "reviewer", "dependencies": ["c7"], "input_context": {"query": "审核复杂度分析"}}
+        ],
+        "dag_adjacency": {"p7": ["r7"], "r7": ["c7"], "c7": ["v7"], "v7": []}
+    },
+    {
+        "task_id": "bench-008",
+        "user_query": "设计消息队列系统",
+        "sub_tasks": [
+            {"id": "p8", "name": "系统设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "消息队列设计"}},
+            {"id": "r8", "name": "技术选型", "agent_type": "researcher", "dependencies": ["p8"], "input_context": {"query": "Kafka RabbitMQ"}},
+            {"id": "c8", "name": "方案设计", "agent_type": "coder", "dependencies": ["r8"], "input_context": {"query": "消息队列方案"}},
+            {"id": "v8", "name": "审核方案", "agent_type": "reviewer", "dependencies": ["c8"], "input_context": {"query": "审核方案"}}
+        ],
+        "dag_adjacency": {"p8": ["r8"], "r8": ["c8"], "c8": ["v8"], "v8": []}
+    },
+    {
+        "task_id": "bench-009",
+        "user_query": "实现缓存策略",
+        "sub_tasks": [
+            {"id": "p9", "name": "策略分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "缓存策略"}},
+            {"id": "r9", "name": "方案调研", "agent_type": "researcher", "dependencies": ["p9"], "input_context": {"query": "LRU Redis 缓存"}},
+            {"id": "c9", "name": "实现缓存", "agent_type": "coder", "dependencies": ["r9"], "input_context": {"query": "实现 LRU 缓存"}},
+            {"id": "v9", "name": "性能测试", "agent_type": "reviewer", "dependencies": ["c9"], "input_context": {"query": "性能测试"}}
+        ],
+        "dag_adjacency": {"p9": ["r9"], "r9": ["c9"], "c9": ["v9"], "v9": []}
+    },
+    {
+        "task_id": "bench-010",
+        "user_query": "解释 Docker 容器原理",
+        "sub_tasks": [
+            {"id": "p10", "name": "原理讲解", "agent_type": "planner", "dependencies": [], "input_context": {"query": "Docker 原理"}},
+            {"id": "r10", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p10"], "input_context": {"query": "容器虚拟化"}},
+            {"id": "c10", "name": "编写文档", "agent_type": "coder", "dependencies": ["r10"], "input_context": {"query": "Docker 技术文档"}},
+            {"id": "v10", "name": "审核文档", "agent_type": "reviewer", "dependencies": ["c10"], "input_context": {"query": "审核技术文档"}}
+        ],
+        "dag_adjacency": {"p10": ["r10"], "r10": ["c10"], "c10": ["v10"], "v10": []}
+    },
+    {
+        "task_id": "bench-011",
+        "user_query": "实现分布式锁",
+        "sub_tasks": [
+            {"id": "p11", "name": "方案设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "分布式锁"}},
+            {"id": "r11", "name": "技术调研", "agent_type": "researcher", "dependencies": ["p11"], "input_context": {"query": "Redis ZooKeeper 分布式锁"}},
+            {"id": "c11", "name": "实现锁", "agent_type": "coder", "dependencies": ["r11"], "input_context": {"query": "实现 Redis 分布式锁"}},
+            {"id": "v11", "name": "验证锁", "agent_type": "reviewer", "dependencies": ["c11"], "input_context": {"query": "验证锁的正确性"}}
+        ],
+        "dag_adjacency": {"p11": ["r11"], "r11": ["c11"], "c11": ["v11"], "v11": []}
+    },
+    {
+        "task_id": "bench-012",
+        "user_query": "分析 Git 工作流",
+        "sub_tasks": [
+            {"id": "p12", "name": "工作流分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "Git 工作流"}},
+            {"id": "r12", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p12"], "input_context": {"query": "Git Flow GitHub Flow"}},
+            {"id": "c12", "name": "编写指南", "agent_type": "coder", "dependencies": ["r12"], "input_context": {"query": "Git 使用指南"}},
+            {"id": "v12", "name": "审核指南", "agent_type": "reviewer", "dependencies": ["c12"], "input_context": {"query": "审核使用指南"}}
+        ],
+        "dag_adjacency": {"p12": ["r12"], "r12": ["c12"], "c12": ["v12"], "v12": []}
+    },
+    {
+        "task_id": "bench-013",
+        "user_query": "设计数据库分片方案",
+        "sub_tasks": [
+            {"id": "p13", "name": "分片设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "数据库分片"}},
+            {"id": "r13", "name": "方案调研", "agent_type": "researcher", "dependencies": ["p13"], "input_context": {"query": "水平分片 垂直分片"}},
+            {"id": "c13", "name": "编写方案", "agent_type": "coder", "dependencies": ["r13"], "input_context": {"query": "分片方案文档"}},
+            {"id": "v13", "name": "审核方案", "agent_type": "reviewer", "dependencies": ["c13"], "input_context": {"query": "审核分片方案"}}
+        ],
+        "dag_adjacency": {"p13": ["r13"], "r13": ["c13"], "c13": ["v13"], "v13": []}
+    },
+    {
+        "task_id": "bench-014",
+        "user_query": "实现日志系统",
+        "sub_tasks": [
+            {"id": "p14", "name": "系统设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "日志系统"}},
+            {"id": "r14", "name": "技术选型", "agent_type": "researcher", "dependencies": ["p14"], "input_context": {"query": "ELK Grafana Loki"}},
+            {"id": "c14", "name": "实现日志", "agent_type": "coder", "dependencies": ["r14"], "input_context": {"query": "实现结构化日志"}},
+            {"id": "v14", "name": "验证日志", "agent_type": "reviewer", "dependencies": ["c14"], "input_context": {"query": "验证日志采集"}}
+        ],
+        "dag_adjacency": {"p14": ["r14"], "r14": ["c14"], "c14": ["v14"], "v14": []}
+    },
+    {
+        "task_id": "bench-015",
+        "user_query": "解释 Kubernetes 原理",
+        "sub_tasks": [
+            {"id": "p15", "name": "原理讲解", "agent_type": "planner", "dependencies": [], "input_context": {"query": "K8s 原理"}},
+            {"id": "r15", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p15"], "input_context": {"query": "Kubernetes 架构"}},
+            {"id": "c15", "name": "编写文档", "agent_type": "coder", "dependencies": ["r15"], "input_context": {"query": "K8s 技术文档"}},
+            {"id": "v15", "name": "审核文档", "agent_type": "reviewer", "dependencies": ["c15"], "input_context": {"query": "审核 K8s 文档"}}
+        ],
+        "dag_adjacency": {"p15": ["r15"], "r15": ["c15"], "c15": ["v15"], "v15": []}
+    },
+    {
+        "task_id": "bench-016",
+        "user_query": "实现 API 网关",
+        "sub_tasks": [
+            {"id": "p16", "name": "网关设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "API 网关"}},
+            {"id": "r16", "name": "方案调研", "agent_type": "researcher", "dependencies": ["p16"], "input_context": {"query": "Kong Nginx Gateway"}},
+            {"id": "c16", "name": "实现网关", "agent_type": "coder", "dependencies": ["r16"], "input_context": {"query": "实现 API 路由"}},
+            {"id": "v16", "name": "验证网关", "agent_type": "reviewer", "dependencies": ["c16"], "input_context": {"query": "验证网关功能"}}
+        ],
+        "dag_adjacency": {"p16": ["r16"], "r16": ["c16"], "c16": ["v16"], "v16": []}
+    },
+    {
+        "task_id": "bench-017",
+        "user_query": "分析算法时间复杂度",
+        "sub_tasks": [
+            {"id": "p17", "name": "复杂度分析", "agent_type": "planner", "dependencies": [], "input_context": {"query": "算法复杂度"}},
+            {"id": "r17", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p17"], "input_context": {"query": "算法时间复杂度"}},
+            {"id": "c17", "name": "编写分析", "agent_type": "coder", "dependencies": ["r17"], "input_context": {"query": "算法复杂度对比"}},
+            {"id": "v17", "name": "审核分析", "agent_type": "reviewer", "dependencies": ["c17"], "input_context": {"query": "审核算法分析"}}
+        ],
+        "dag_adjacency": {"p17": ["r17"], "r17": ["c17"], "c17": ["v17"], "v17": []}
+    },
+    {
+        "task_id": "bench-018",
+        "user_query": "设计负载均衡方案",
+        "sub_tasks": [
+            {"id": "p18", "name": "方案设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "负载均衡"}},
+            {"id": "r18", "name": "技术调研", "agent_type": "researcher", "dependencies": ["p18"], "input_context": {"query": "Nginx LVS DNS 负载均衡"}},
+            {"id": "c18", "name": "实现方案", "agent_type": "coder", "dependencies": ["r18"], "input_context": {"query": "负载均衡配置"}},
+            {"id": "v18", "name": "验证方案", "agent_type": "reviewer", "dependencies": ["c18"], "input_context": {"query": "验证负载均衡"}}
+        ],
+        "dag_adjacency": {"p18": ["r18"], "r18": ["c18"], "c18": ["v18"], "v18": []}
+    },
+    {
+        "task_id": "bench-019",
+        "user_query": "实现数据迁移工具",
+        "sub_tasks": [
+            {"id": "p19", "name": "工具设计", "agent_type": "planner", "dependencies": [], "input_context": {"query": "数据迁移"}},
+            {"id": "r19", "name": "方案调研", "agent_type": "researcher", "dependencies": ["p19"], "input_context": {"query": "数据迁移方案"}},
+            {"id": "c19", "name": "实现工具", "agent_type": "coder", "dependencies": ["r19"], "input_context": {"query": "数据迁移脚本"}},
+            {"id": "v19", "name": "验证工具", "agent_type": "reviewer", "dependencies": ["c19"], "input_context": {"query": "验证数据一致性"}}
+        ],
+        "dag_adjacency": {"p19": ["r19"], "r19": ["c19"], "c19": ["v19"], "v19": []}
+    },
+    {
+        "task_id": "bench-020",
+        "user_query": "解释 CI/CD 流程",
+        "sub_tasks": [
+            {"id": "p20", "name": "流程讲解", "agent_type": "planner", "dependencies": [], "input_context": {"query": "CI/CD 流程"}},
+            {"id": "r20", "name": "收集资料", "agent_type": "researcher", "dependencies": ["p20"], "input_context": {"query": "Jenkins GitHub Actions"}},
+            {"id": "c20", "name": "编写文档", "agent_type": "coder", "dependencies": ["r20"], "input_context": {"query": "CI/CD 配置指南"}},
+            {"id": "v20", "name": "审核文档", "agent_type": "reviewer", "dependencies": ["c20"], "input_context": {"query": "审核 CI/CD 文档"}}
+        ],
+        "dag_adjacency": {"p20": ["r20"], "r20": ["c20"], "c20": ["v20"], "v20": []}
+    }
+]

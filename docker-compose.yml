@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+  temporal:
+    image: temporalio/auto-setup:1.24.0
+    ports:
+      - "7233:7233"
+      - "7234:7234"
+    environment:
+      - TEMPORAL_CLI_ADDRESS=temporal:7233
+      - TEMPORAL_NAMESPACE=default
+      - TEMPORAL_UI_PORT=8233
+      - TEMPORAL_DB=postgres
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=temporal
+      - POSTGRES_PASSWORD=temporal
+      - POSTGRES_DB=temporal
+    depends_on:
+      - postgres
+    networks:
+      - orbit-network
+
+  temporal-ui:
+    image: temporalio/ui:2.24.0
+    ports:
+      - "8233:8233"
+    environment:
+      - TEMPORAL_ADDRESS=temporal:7233
+    depends_on:
+      - temporal
+    networks:
+      - orbit-network
+
+  postgres:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=orbit
+      - POSTGRES_PASSWORD=orbit_password
+      - POSTGRES_DB=orbit_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+    networks:
+      - orbit-network
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.58
+    ports:
+      - "5775:5775/udp"
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "14268:14268"
+      - "14250:14250"
+      - "9411:9411"
+    environment:
+      - COLLECTOR_ZIPKIN_HOST_PORT=:9411
+    networks:
+      - orbit-network
+
+volumes:
+  postgres_data:
+
+networks:
+  orbit-network:
+    driver: bridge
